@@ -1,13 +1,25 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Список пользователей</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<h1>Список пользователей</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Phone number</th>
+    </tr>
+    <c:forEach var="user" items="${requestScope.usersList}">
+        <tr>
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.surname}</td>
+            <td>${user.phoneNumber}</td>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>

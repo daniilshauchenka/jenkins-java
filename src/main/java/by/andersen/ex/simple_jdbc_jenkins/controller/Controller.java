@@ -1,4 +1,4 @@
-package by.andersen.ex.jdbc.simple_jdbc_jenkins;
+package by.andersen.ex.simple_jdbc_jenkins.controller;
 
 import java.io.*;
 import javax.servlet.http.*;
