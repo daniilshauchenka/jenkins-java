@@ -1,13 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8"  %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
     <title>Users list</title>
+
+    <style>
+        .bordered-table {
+            border-collapse: collapse;
+        }
+        .bordered-table td, th {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
 <h1>Users list</h1>
 
-<table>
+<table class="bordered-table">
     <tr>
         <th>ID</th>
         <th>Name</th>
