@@ -22,7 +22,7 @@ public class GoToBasePage implements Command {
         try{
             usersList = userService.getUsers(USERS_PER_PAGE, 0);
             request.setAttribute(RequestParam.JSP_USERS_LIST_PARAM_NAME, usersList);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/pages/users.jsp").forward(request, response);
         }catch (ServiceException ex){
             ex.printStackTrace();
         }

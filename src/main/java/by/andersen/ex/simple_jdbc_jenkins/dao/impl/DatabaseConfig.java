@@ -10,14 +10,19 @@ public final class DatabaseConfig {
     static {
         try {
             loadConfig();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    private static void loadConfig() throws IOException {
+    private static void loadConfig() throws IOException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        System.out.println("getting config");
         try (InputStream input = DatabaseConfig.class.getClassLoader().getResourceAsStream("db.properties")) {
+
             if (input != null) {
+                System.out.println("db prop connected");
                 properties.load(input);
             } else {
                 throw new IOException("Database configuration not found!");

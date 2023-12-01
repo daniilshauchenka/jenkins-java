@@ -6,17 +6,15 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 
-@WebServlet(name = "controller", value = "/controller")
+
 public class Controller extends HttpServlet {
 
     private final CommandProvider provider = new CommandProvider();
 @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("asdasf");
         String commandName = request.getParameter("command");
         Command command = provider.getCommand(commandName);
         request.setAttribute(RequestParam.JSP_PREV_QUERY_PARAM_NAME, request.getHeader("referer"));
-        request.setAttribute("text", "asfasfasgmkasg");
         command.execute(request, response);
     }
 @Override
