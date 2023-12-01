@@ -16,7 +16,7 @@
 </head>
 <body>
 <h1>Users list</h1>
-
+<a href="${pageContext.request.contextPath}/controller?command=go_to_add_user">Add user</a>
 <table class="bordered-table">
     <tr>
         <th>ID</th>

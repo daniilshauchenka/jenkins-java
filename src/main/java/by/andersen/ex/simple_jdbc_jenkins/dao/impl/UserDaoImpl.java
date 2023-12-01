@@ -13,18 +13,17 @@ public class UserDaoImpl implements IUserDao {
 
 
 
-    //   private static final String SQL_GET_USERS = "SELECT * from users order by id LIMIT ? OFFSET ?";
-    private static final String SQL = "SELECT * from users order by id LIMIT ? OFFSET ?";
+    private static final String SQL_GET_USERS = "SELECT * from users order by id LIMIT ? OFFSET ?";
+
 
     @Override
     public List<User> getUsersList(int limit, int offset) throws DaoException {
         List<User> usersList = new ArrayList<>();
-        System.out.println(DatabaseConfig.getUrl() + " " + DatabaseConfig.getUsername());
         try (Connection connection = DriverManager.getConnection(
                 DatabaseConfig.getUrl(),
                 DatabaseConfig.getUsername(),
                 DatabaseConfig.getPassword());
-             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL_GET_USERS)) {
             preparedStatement.setInt(1, limit);
             preparedStatement.setInt(2, offset);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -41,5 +40,35 @@ public class UserDaoImpl implements IUserDao {
         } catch (SQLException ex) {
             throw new DaoException(ex);
         }
+    }
+
+    private static final String SQL_ADD_USER = "insert into users (name, surname, phone_number) values (?, ?, ?) ";
+
+    @Override
+    public void addUser(User user) throws DaoException {
+        System.out.println("dao add");
+        try (Connection connection = DriverManager.getConnection(
+                DatabaseConfig.getUrl(),
+                DatabaseConfig.getUsername(),
+                DatabaseConfig.getPassword());
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL_ADD_USER)) {
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getSurname());
+            preparedStatement.setString(3, user.getPhoneNumber());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException ex) {
+            throw new DaoException(ex);
+        }
+    }
+
+    @Override
+    public void deleteUser(User user) throws DaoException {
+
+    }
+
+    @Override
+    public void updateUser(User user) throws DaoException {
+
     }
 }

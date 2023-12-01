@@ -1,24 +1,27 @@
 package by.andersen.ex.simple_jdbc_jenkins.controller;
-
-import by.andersen.ex.simple_jdbc_jenkins.controller.commandImpl.GoToBasePage;
+import by.andersen.ex.simple_jdbc_jenkins.controller.commandImpl.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class CommandProvider {
-    private Map<CommandName, Command> commands = new HashMap<>();
+    private final Map<CommandName, Command> commands = new HashMap<>();
 
     public CommandProvider() {
         commands.put(CommandName.GO_TO_BASE_PAGE, new GoToBasePage());
+        commands.put(CommandName.GO_TO_ADD_USER, new GoToAddUser());
+        commands.put(CommandName.DO_ADD_USER, new DoAddUser());
+
     }
 
     public Command getCommand(String name) {
-        CommandName  commandName = CommandName.GO_TO_BASE_PAGE;
+        CommandName commandName = CommandName.GO_TO_BASE_PAGE;
         try {
-            if(name!=null) {
+            if (name != null) {
                 commandName = CommandName.valueOf(name.toUpperCase());
             }
-        } catch(IllegalArgumentException ignored) {}
+        } catch (IllegalArgumentException ignored) {
+        }
         return commands.get(commandName);
     }
 

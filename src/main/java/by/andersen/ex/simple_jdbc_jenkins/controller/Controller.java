@@ -12,6 +12,7 @@ public class Controller extends HttpServlet {
     private final CommandProvider provider = new CommandProvider();
 @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+       System.out.println(request.getContextPath());
         String commandName = request.getParameter("command");
         Command command = provider.getCommand(commandName);
         request.setAttribute(RequestParam.JSP_PREV_QUERY_PARAM_NAME, request.getHeader("referer"));

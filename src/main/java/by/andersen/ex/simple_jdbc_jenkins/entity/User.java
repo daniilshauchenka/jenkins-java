@@ -15,6 +15,12 @@ public class User {
         this.id = id;
     }
 
+    public User(String name, String surname, String phoneNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public String toString() {
         return "User{" +
