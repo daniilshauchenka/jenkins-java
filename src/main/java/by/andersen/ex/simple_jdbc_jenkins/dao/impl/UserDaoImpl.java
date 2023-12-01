@@ -1,6 +1,7 @@
 package by.andersen.ex.simple_jdbc_jenkins.dao.impl;
 
 import by.andersen.ex.simple_jdbc_jenkins.dao.IUserDao;
+import by.andersen.ex.simple_jdbc_jenkins.dao.db.DatabaseConfig;
 import by.andersen.ex.simple_jdbc_jenkins.dao.exception.DaoException;
 import by.andersen.ex.simple_jdbc_jenkins.entity.User;
 

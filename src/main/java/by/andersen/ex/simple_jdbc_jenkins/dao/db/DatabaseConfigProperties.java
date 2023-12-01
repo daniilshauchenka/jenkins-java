@@ -1,10 +1,10 @@
-package by.andersen.ex.simple_jdbc_jenkins.dao.impl;
+package by.andersen.ex.simple_jdbc_jenkins.dao.db;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public final class DatabaseConfig {
+public final class DatabaseConfigProperties {
     private static final Properties properties = new Properties();
 
     static {
@@ -18,8 +18,8 @@ public final class DatabaseConfig {
     private static void loadConfig() throws IOException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        System.out.println("getting config");
-        try (InputStream input = DatabaseConfig.class.getClassLoader().getResourceAsStream("db.properties")) {
+
+        try (InputStream input = DatabaseConfigProperties.class.getClassLoader().getResourceAsStream("db.properties")) {
 
             if (input != null) {
                 System.out.println("db prop connected");
