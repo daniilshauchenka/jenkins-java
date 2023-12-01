@@ -1,4 +1,4 @@
-package by.andersen.firstproject.entity;
+package by.andersen.ex.simple_jdbc_jenkins.entity;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package by.andersen.firstproject.dao.exception;
+package by.andersen.ex.simple_jdbc_jenkins.dao.exception;
 
 import java.sql.SQLException;
 

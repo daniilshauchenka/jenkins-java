@@ -1,4 +1,4 @@
-package by.andersen.firstproject.dao.impl;
+package by.andersen.ex.simple_jdbc_jenkins.dao.impl;
 
 import java.io.IOException;
 import java.io.InputStream;

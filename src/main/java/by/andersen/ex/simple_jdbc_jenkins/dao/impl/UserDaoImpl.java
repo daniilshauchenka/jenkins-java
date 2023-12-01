@@ -1,8 +1,8 @@
-package by.andersen.firstproject.dao.impl;
+package by.andersen.ex.simple_jdbc_jenkins.dao.impl;
 
-import by.andersen.firstproject.dao.IUserDao;
-import by.andersen.firstproject.dao.exception.DaoException;
-import by.andersen.firstproject.entity.User;
+import by.andersen.ex.simple_jdbc_jenkins.dao.IUserDao;
+import by.andersen.ex.simple_jdbc_jenkins.dao.exception.DaoException;
+import by.andersen.ex.simple_jdbc_jenkins.entity.User;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,10 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Список пользователей</title>
 </head>
 <body>
 <h1>Список пользователей</h1>
+<c:out value="${text}"/>
 <table border="1">
     <tr>
         <th>ID</th>

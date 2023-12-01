@@ -1,11 +1,11 @@
-package by.andersen.firstproject.controller.commandImpl;
+package by.andersen.ex.simple_jdbc_jenkins.controller.commandImpl;
 
-import by.andersen.firstproject.controller.Command;
-import by.andersen.firstproject.controller.RequestParam;
-import by.andersen.firstproject.entity.User;
-import by.andersen.firstproject.service.IUserService;
-import by.andersen.firstproject.service.ServiceProvider;
-import by.andersen.firstproject.service.exception.ServiceException;
+import by.andersen.ex.simple_jdbc_jenkins.controller.Command;
+import by.andersen.ex.simple_jdbc_jenkins.controller.RequestParam;
+import by.andersen.ex.simple_jdbc_jenkins.entity.User;
+import by.andersen.ex.simple_jdbc_jenkins.service.IUserService;
+import by.andersen.ex.simple_jdbc_jenkins.service.ServiceProvider;
+import by.andersen.ex.simple_jdbc_jenkins.service.exception.ServiceException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

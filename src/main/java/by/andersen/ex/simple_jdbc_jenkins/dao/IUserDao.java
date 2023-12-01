@@ -1,7 +1,7 @@
-package by.andersen.firstproject.dao;
+package by.andersen.ex.simple_jdbc_jenkins.dao;
 
-import by.andersen.firstproject.dao.exception.DaoException;
-import by.andersen.firstproject.entity.User;
+import by.andersen.ex.simple_jdbc_jenkins.dao.exception.DaoException;
+import by.andersen.ex.simple_jdbc_jenkins.entity.User;
 
 import java.util.List;
 

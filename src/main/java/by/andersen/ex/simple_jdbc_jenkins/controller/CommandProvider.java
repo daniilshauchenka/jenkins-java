@@ -1,6 +1,6 @@
-package by.andersen.firstproject.controller;
+package by.andersen.ex.simple_jdbc_jenkins.controller;
 
-import by.andersen.firstproject.controller.commandImpl.GoToBasePage;
+import by.andersen.ex.simple_jdbc_jenkins.controller.commandImpl.GoToBasePage;
 
 import java.util.HashMap;
 import java.util.Map;

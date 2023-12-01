@@ -1,6 +1,6 @@
-package by.andersen.firstproject.service;
+package by.andersen.ex.simple_jdbc_jenkins.service;
 
-import by.andersen.firstproject.service.impl.UserServiceImpl;
+import by.andersen.ex.simple_jdbc_jenkins.service.impl.UserServiceImpl;
 
 public final class ServiceProvider {
 

@@ -1,11 +1,11 @@
-package by.andersen.firstproject.service.impl;
+package by.andersen.ex.simple_jdbc_jenkins.service.impl;
 
-import by.andersen.firstproject.dao.DaoProvider;
-import by.andersen.firstproject.dao.IUserDao;
-import by.andersen.firstproject.dao.exception.DaoException;
-import by.andersen.firstproject.entity.User;
-import by.andersen.firstproject.service.IUserService;
-import by.andersen.firstproject.service.exception.ServiceException;
+import by.andersen.ex.simple_jdbc_jenkins.dao.DaoProvider;
+import by.andersen.ex.simple_jdbc_jenkins.dao.IUserDao;
+import by.andersen.ex.simple_jdbc_jenkins.dao.exception.DaoException;
+import by.andersen.ex.simple_jdbc_jenkins.entity.User;
+import by.andersen.ex.simple_jdbc_jenkins.service.IUserService;
+import by.andersen.ex.simple_jdbc_jenkins.service.exception.ServiceException;
 
 import java.util.List;
 

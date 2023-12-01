@@ -1,6 +1,6 @@
-package by.andersen.firstproject.dao;
+package by.andersen.ex.simple_jdbc_jenkins.dao;
 
-import by.andersen.firstproject.dao.impl.UserDaoImpl;
+import by.andersen.ex.simple_jdbc_jenkins.dao.impl.UserDaoImpl;
 
 public class DaoProvider {
     private static final DaoProvider instance = new DaoProvider();

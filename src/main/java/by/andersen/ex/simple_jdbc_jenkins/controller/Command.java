@@ -1,4 +1,4 @@
-package by.andersen.firstproject.controller;
+package by.andersen.ex.simple_jdbc_jenkins.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

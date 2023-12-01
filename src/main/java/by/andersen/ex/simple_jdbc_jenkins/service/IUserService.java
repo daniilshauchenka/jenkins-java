@@ -1,7 +1,7 @@
-package by.andersen.firstproject.service;
+package by.andersen.ex.simple_jdbc_jenkins.service;
 
-import by.andersen.firstproject.entity.User;
-import by.andersen.firstproject.service.exception.ServiceException;
+import by.andersen.ex.simple_jdbc_jenkins.entity.User;
+import by.andersen.ex.simple_jdbc_jenkins.service.exception.ServiceException;
 
 import java.util.List;
 
