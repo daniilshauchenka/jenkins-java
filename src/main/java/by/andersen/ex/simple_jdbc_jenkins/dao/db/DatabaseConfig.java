@@ -10,25 +10,29 @@ public class DatabaseConfig {
             loadConfig();
         } catch (Exception e) {
             e.printStackTrace();
-            System.exit(1);
+            System.exit(5);
         }
     }
 
     private static void loadConfig() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String url = System.getenv("JENKINS_FIRST_JDBC_DB_URL");
-        //String url = "jdbc:mysql://192.168.0.109:3306/users";
         String username = System.getenv("JENKINS_FIRST_JDBC_DB_USERNAME");
-        //String username = "tomcat";
         String password = System.getenv("JENKINS_FIRST_JDBC_DB_PASSWORD");
-        //String password = "?&MpELmhW0Ve";
 System.out.println(url + " " + username +" " + password);
         if (url != null && username != null && password != null) {
             properties.setProperty("db.url", url);
             properties.setProperty("db.username", username);
             properties.setProperty("db.password", password);
         } else {
-            throw new Exception("Database configuration not found in environment variables!");
+            //throw new Exception("Database configuration not found in environment variables!");
+
+            //TODO
+            properties.setProperty("db.url","jdbc:mysql://192.168.0.109:3306/users");
+            properties.setProperty("db.username", "tomcat");
+            properties.setProperty("db.password", "?&MpELmhW0Ve");
+            //TODO
+
         }
     }
 
