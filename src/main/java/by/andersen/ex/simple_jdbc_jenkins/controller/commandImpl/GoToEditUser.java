@@ -11,21 +11,32 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-public class GoToBasePage implements Command {
+public class GoToEditUser implements Command {
+
     private final IUserService userService = ServiceProvider.getInstance().getUserService();
-    private static final int USERS_PER_PAGE = 5;
+
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<User> usersList;
-        try{
-            usersList = userService.getList(USERS_PER_PAGE, 0);
-            request.setAttribute(RequestParam.JSP_USERS_LIST_PARAM_NAME, usersList);
-            request.getRequestDispatcher("WEB-INF/pages/users.jsp").forward(request, response);
-        }catch (ServiceException ex){
+        User user;
+        int id = -1;
+
+        try {
+            id = Integer.parseInt(request.getParameter("id"));
+        } catch (NumberFormatException ex) {
+            //todo handle exception
             ex.printStackTrace();
+            response.sendRedirect("controller?command=go_to_users_list");
         }
+
+        try {
+            user = userService.getById(id);
+            request.setAttribute(RequestParam.JSP_SINGLE_USER_INFO_PARAM_NAME, user);
+
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        }
+        request.getRequestDispatcher("WEB-INF/pages/editUser.jsp").forward(request, response);
 
     }
 }

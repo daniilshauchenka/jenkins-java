@@ -11,7 +11,8 @@ public class CommandProvider {
         commands.put(CommandName.GO_TO_BASE_PAGE, new GoToBasePage());
         commands.put(CommandName.GO_TO_ADD_USER, new GoToAddUser());
         commands.put(CommandName.DO_ADD_USER, new DoAddUser());
-
+        commands.put(CommandName.GO_TO_EDIT_USER, new GoToEditUser());
+        commands.put(CommandName.DO_EDIT_USER, new DoEditUser());
     }
 
     public Command getCommand(String name) {

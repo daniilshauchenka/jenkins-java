@@ -6,11 +6,13 @@ import by.andersen.ex.simple_jdbc_jenkins.service.exception.ServiceException;
 import java.util.List;
 
 public interface IUserService {
-    List<User> getUsers(int limit, int offset) throws ServiceException;
+    List<User> getList(int limit, int offset) throws ServiceException;
 
-    void addUser(User user) throws ServiceException;
+    void add(User user) throws ServiceException;
 
-    void deleteUser(User user) throws ServiceException;
+    void delete(User user) throws ServiceException;
 
-    void updateUser(User user) throws ServiceException;
+    void update(User user) throws ServiceException;
+
+    User getById(int id) throws ServiceException;
 }

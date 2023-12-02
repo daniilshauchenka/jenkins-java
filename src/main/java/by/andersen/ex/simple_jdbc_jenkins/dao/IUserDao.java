@@ -6,11 +6,13 @@ import by.andersen.ex.simple_jdbc_jenkins.entity.User;
 import java.util.List;
 
 public interface IUserDao {
-    List<User> getUsersList(int limit, int offset) throws DaoException;
+    List<User> getList(int limit, int offset) throws DaoException;
 
-    void addUser(User user) throws DaoException;
+    void add(User user) throws DaoException;
 
-    void deleteUser(User user) throws DaoException;
+    void delete(User user) throws DaoException;
 
-    void updateUser(User user) throws DaoException;
+    void update(User user) throws DaoException;
+
+    User getById(int id) throws DaoException;
 }

@@ -12,12 +12,11 @@ import java.util.List;
 public class UserDaoImpl implements IUserDao {
 
 
-
     private static final String SQL_GET_USERS = "SELECT * from users order by id LIMIT ? OFFSET ?";
 
 
     @Override
-    public List<User> getUsersList(int limit, int offset) throws DaoException {
+    public List<User> getList(int limit, int offset) throws DaoException {
         List<User> usersList = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(
                 DatabaseConfig.getUrl(),
@@ -45,7 +44,7 @@ public class UserDaoImpl implements IUserDao {
     private static final String SQL_ADD_USER = "insert into users (name, surname, phone_number) values (?, ?, ?) ";
 
     @Override
-    public void addUser(User user) throws DaoException {
+    public void add(User user) throws DaoException {
         System.out.println("dao add");
         try (Connection connection = DriverManager.getConnection(
                 DatabaseConfig.getUrl(),
@@ -63,14 +62,58 @@ public class UserDaoImpl implements IUserDao {
     }
 
     @Override
-    public void deleteUser(User user) throws DaoException {
-
+    public void delete(User user) throws DaoException {
 
 
     }
 
-    @Override
-    public void updateUser(User user) throws DaoException {
 
+    private static final String SQL_UPDATE_USER = "update users set name=?, surname=?, phone_number=? where id=?";
+
+
+    @Override
+    public void update(User user) throws DaoException {
+        System.out.println("UPDATE USER  " + user);
+        try (Connection connection = DriverManager.getConnection(
+                DatabaseConfig.getUrl(),
+                DatabaseConfig.getUsername(),
+                DatabaseConfig.getPassword());
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE_USER)) {
+            connection.setAutoCommit(false);
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getSurname());
+            preparedStatement.setString(3, user.getPhoneNumber());
+            preparedStatement.setInt(4, user.getId());
+            preparedStatement.executeUpdate();
+            connection.setAutoCommit(true);
+            System.out.println("user updated");
+        } catch (SQLException ex) {
+            throw new DaoException(ex);
+        }
+    }
+
+    private static final String SQL_GET_USER_BY_ID = "select * from users where id=?";
+
+    @Override
+    public User getById(int id) throws DaoException {
+        User user = null;
+        try (Connection connection = DriverManager.getConnection(
+                DatabaseConfig.getUrl(),
+                DatabaseConfig.getUsername(),
+                DatabaseConfig.getPassword());
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL_GET_USER_BY_ID)) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                user = new User(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("surname"),
+                        resultSet.getString("phone_number"));
+            }
+        } catch (SQLException ex) {
+            throw new DaoException(ex);
+        }
+        return user;
     }
 }

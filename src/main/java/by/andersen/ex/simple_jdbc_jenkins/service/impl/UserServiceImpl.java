@@ -13,37 +13,46 @@ public class UserServiceImpl implements IUserService {
     IUserDao userDao = DaoProvider.getInstance().getUserDao();
 
     @Override
-    public List<User> getUsers(int limit, int offset) throws ServiceException {
+    public List<User> getList(int limit, int offset) throws ServiceException {
         try {
-            return userDao.getUsersList(limit, offset);
+            return userDao.getList(limit, offset);
         } catch (DaoException ex) {
             throw new ServiceException(ex);
         }
     }
 
     @Override
-    public void addUser(User user) throws ServiceException {
+    public void add(User user) throws ServiceException {
         try {
             System.out.println("service add");
-            userDao.addUser(user);
+            userDao.add(user);
         } catch (DaoException ex) {
             throw new ServiceException(ex);
         }
     }
 
     @Override
-    public void deleteUser(User user) throws ServiceException {
+    public void delete(User user) throws ServiceException {
         try {
-            userDao.deleteUser(user);
+            userDao.delete(user);
         } catch (DaoException ex) {
             throw new ServiceException(ex);
         }
     }
 
     @Override
-    public void updateUser(User user) throws ServiceException {
+    public void update(User user) throws ServiceException {
         try {
-            userDao.updateUser(user);
+            userDao.update(user);
+        } catch (DaoException ex) {
+            throw new ServiceException(ex);
+        }
+    }
+
+    @Override
+    public User getById(int id) throws ServiceException {
+        try {
+            return userDao.getById(id);
         } catch (DaoException ex) {
             throw new ServiceException(ex);
         }

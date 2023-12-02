@@ -31,7 +31,7 @@
             <td>${user.name}</td>
             <td>${user.surname}</td>
             <td>${user.phoneNumber}</td>
-            <td><a href="${pageContext.request.contextPath}controller&command=go_to_edit_user">edit</a></td>
+            <td><a href="${pageContext.request.contextPath}/controller?command=go_to_edit_user&id=${user.id}">edit</a></td>
         </tr>
     </c:forEach>
 </table>
