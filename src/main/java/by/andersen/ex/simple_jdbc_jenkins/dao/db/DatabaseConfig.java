@@ -16,7 +16,7 @@ public class DatabaseConfig {
 
     private static void loadConfig() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        // Чтение данных из переменных среды
+
         String url = System.getenv("JENKINS_FIRST_JDBC_DB_URL");
         //String url = "jdbc:mysql://192.168.0.109:3306/users";
         String username = System.getenv("JENKINS_FIRST_JDBC_DB_USERNAME");
