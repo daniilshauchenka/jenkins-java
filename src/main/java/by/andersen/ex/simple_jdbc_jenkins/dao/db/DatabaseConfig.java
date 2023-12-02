@@ -17,11 +17,12 @@ public class DatabaseConfig {
     private static void loadConfig() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         // Чтение данных из переменных среды
-//        String url = System.getenv("JENKINS_FIRST_JDBC_DB_URL");
-        String url = "jdbc:mysql://192.168.0.109:3306/users";
-        //String username = System.getenv("JENKINS_FIRST_JDBC_DB_USERNAME");
-        String username = "tomcat";
-        String password = "?&MpELmhW0Ve";
+        String url = System.getenv("JENKINS_FIRST_JDBC_DB_URL");
+        //String url = "jdbc:mysql://192.168.0.109:3306/users";
+        String username = System.getenv("JENKINS_FIRST_JDBC_DB_USERNAME");
+        //String username = "tomcat";
+        String password = System.getenv("JENKINS_FIRST_JDBC_DB_PASSWORD");
+        //String password = "?&MpELmhW0Ve";
 System.out.println(url + " " + username +" " + password);
         if (url != null && username != null && password != null) {
             properties.setProperty("db.url", url);
