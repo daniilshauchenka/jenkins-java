@@ -10,7 +10,7 @@ public interface IUserService {
 
     void add(User user) throws ServiceException;
 
-    void delete(User user) throws ServiceException;
+    void delete(int id) throws ServiceException;
 
     void update(User user) throws ServiceException;
 

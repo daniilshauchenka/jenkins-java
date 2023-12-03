@@ -10,7 +10,7 @@ public interface IUserDao {
 
     void add(User user) throws DaoException;
 
-    void delete(User user) throws DaoException;
+    void delete(int id) throws DaoException;
 
     void update(User user) throws DaoException;
 

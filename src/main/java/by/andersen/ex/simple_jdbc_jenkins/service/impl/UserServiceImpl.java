@@ -32,9 +32,9 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void delete(User user) throws ServiceException {
+    public void delete(int id) throws ServiceException {
         try {
-            userDao.delete(user);
+            userDao.delete(id);
         } catch (DaoException ex) {
             throw new ServiceException(ex);
         }

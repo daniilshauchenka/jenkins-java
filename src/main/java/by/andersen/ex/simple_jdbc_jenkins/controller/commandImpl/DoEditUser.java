@@ -16,7 +16,6 @@ public class DoEditUser implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-       System.out.println("UPDATE USER");
         String name = request.getParameter(RequestParam.JSP_USER_NAME_PARAM_NAME);
         String surname = request.getParameter(RequestParam.JSP_USER_SURNAME_PARAM_NAME);
         String phoneNumber = request.getParameter(RequestParam.JSP_USER_PHONE_NUMBER_PARAM_NAME);

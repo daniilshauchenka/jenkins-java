@@ -16,13 +16,14 @@
 </head>
 <body>
 <h1>Users list</h1>
-<a href="${pageContext.request.contextPath}/controller?command=go_to_add_user">Add user</a>
+<a href="${pageContext.request.contextPath}/controller?command=go_to_add_user">Add user</a><br>
 <table class="bordered-table">
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Surname</th>
         <th>Phone number</th>
+        <th></th>
         <th></th>
     </tr>
     <c:forEach var="user" items="${requestScope.usersList}">
@@ -32,6 +33,7 @@
             <td>${user.surname}</td>
             <td>${user.phoneNumber}</td>
             <td><a href="${pageContext.request.contextPath}/controller?command=go_to_edit_user&id=${user.id}">edit</a></td>
+            <td><a href="${pageContext.request.contextPath}/controller?command=do_delete_user&id=${user.id}">delete</a></td>
         </tr>
     </c:forEach>
 </table>

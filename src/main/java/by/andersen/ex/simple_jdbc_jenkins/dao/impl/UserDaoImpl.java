@@ -12,7 +12,7 @@ import java.util.List;
 public class UserDaoImpl implements IUserDao {
 
 
-    private static final String SQL_GET_USERS = "SELECT * from users order by id LIMIT ? OFFSET ?";
+    private static final String SQL_GET_USERS = "SELECT * from users where is_deleted != true order by id LIMIT ? OFFSET ?";
 
 
     @Override
@@ -61,15 +61,29 @@ public class UserDaoImpl implements IUserDao {
         }
     }
 
+
+    private static final String SQL_DELETE_USER = "update users set is_deleted=true where id=?";
+
     @Override
-    public void delete(User user) throws DaoException {
-
-
+    public void delete(int id) throws DaoException {
+        System.out.println("delete USER  " + id);
+        try (Connection connection = DriverManager.getConnection(
+                DatabaseConfig.getUrl(),
+                DatabaseConfig.getUsername(),
+                DatabaseConfig.getPassword());
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE_USER)) {
+            connection.setAutoCommit(false);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+            connection.setAutoCommit(true);
+            System.out.println("user deleted");
+        } catch (SQLException ex) {
+            throw new DaoException(ex);
+        }
     }
 
 
     private static final String SQL_UPDATE_USER = "update users set name=?, surname=?, phone_number=? where id=?";
-
 
     @Override
     public void update(User user) throws DaoException {

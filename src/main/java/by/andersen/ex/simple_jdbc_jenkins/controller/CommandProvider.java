@@ -13,6 +13,7 @@ public class CommandProvider {
         commands.put(CommandName.DO_ADD_USER, new DoAddUser());
         commands.put(CommandName.GO_TO_EDIT_USER, new GoToEditUser());
         commands.put(CommandName.DO_EDIT_USER, new DoEditUser());
+        commands.put(CommandName.DO_DELETE_USER, new DoDeleteUser());
     }
 
     public Command getCommand(String name) {
