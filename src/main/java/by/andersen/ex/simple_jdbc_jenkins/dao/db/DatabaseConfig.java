@@ -16,27 +16,30 @@ public class DatabaseConfig {
 
     private static void loadConfig() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
-       // String url = System.getenv("JENKINS_FIRST_JDBC_DB_URL");
-        String url = System.getProperty("DB_URL");
-     //   String username = System.getenv("JENKINS_FIRST_JDBC_DB_USERNAME");
-        String username = System.getProperty("DB_USERNAME");
-      //  String password = System.getenv("JENKINS_FIRST_JDBC_DB_PASSWORD");
-        String password = System.getProperty("DB_PASSWORD");
-System.out.println(url + " " + username +" " + password);
-        if (url != null && username != null && password != null) {
-            properties.setProperty("db.url", url);
-            properties.setProperty("db.username", username);
-            properties.setProperty("db.password", password);
-        } else {
-       //     throw new Exception("Database configuration not found in environment variables!");
 
-            //TODO
-            properties.setProperty("db.url","jdbc:mysql://192.168.0.109:3306/users");
-            properties.setProperty("db.username", "tomcat");
-            properties.setProperty("db.password", "?&MpELmhW0Ve");
-            //TODO
+        properties.setProperty("db.url","jdbc:mysql://192.168.0.109:3306/users");
+        properties.setProperty("db.username", "tomcat");
+        properties.setProperty("db.password", "A!MpELmhW0Ve");
 
-        }
+//       // String url = System.getenv("JENKINS_FIRST_JDBC_DB_URL");
+//        String url = System.getProperty("DB_URL");
+//     //   String username = System.getenv("JENKINS_FIRST_JDBC_DB_USERNAME");
+//        String username = System.getProperty("DB_USERNAME");
+//      //  String password = System.getenv("JENKINS_FIRST_JDBC_DB_PASSWORD");
+//        String password;
+//System.out.println(url + " " + username +" " + password);
+//        if (url != null && username != null && password != null) {
+//            properties.setProperty("db.url", url);
+//            properties.setProperty("db.username", username);
+//            properties.setProperty("db.password", password);
+//        } else {
+//       //     throw new Exception("Database configuration not found in environment variables!");
+//
+//            //TODO
+//
+//            //TODO
+//
+//        }
     }
 
     public static String getUrl() {
