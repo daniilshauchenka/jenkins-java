@@ -28,12 +28,12 @@ System.out.println(url + " " + username +" " + password);
             properties.setProperty("db.username", username);
             properties.setProperty("db.password", password);
         } else {
-            throw new Exception("Database configuration not found in environment variables!");
+       //     throw new Exception("Database configuration not found in environment variables!");
 
             //TODO
-//            properties.setProperty("db.url","jdbc:mysql://192.168.0.109:3306/users");
-//            properties.setProperty("db.username", "tomcat");
-//            properties.setProperty("db.password", "?&MpELmhW0Ve");
+            properties.setProperty("db.url","jdbc:mysql://192.168.0.109:3306/users");
+            properties.setProperty("db.username", "tomcat");
+            properties.setProperty("db.password", "?&MpELmhW0Ve");
             //TODO
 
         }
