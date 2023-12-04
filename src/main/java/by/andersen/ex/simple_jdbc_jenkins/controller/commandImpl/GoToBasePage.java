@@ -15,7 +15,7 @@ import java.util.List;
 
 public class GoToBasePage implements Command {
     private final IUserService userService = ServiceProvider.getInstance().getUserService();
-    private static final int USERS_PER_PAGE = 5;
+    private static final int USERS_PER_PAGE = 10;
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> usersList;
